@@ -14,6 +14,7 @@ DEST_PORT="${DEST_PORT:-}"
 EXTRA_ARGS="${EXTRA_ARGS:-}"
 USERSPACE="${USERSPACE:-true}"
 KUBE_SECRET="${KUBE_SECRET:-tailscale}"
+HOSTNAME="${HOSTNAME:-}"
 
 set -e
 
@@ -45,6 +46,9 @@ if [[ ! -z "${ROUTES}" ]]; then
 fi
 if [[ ! -z "${AUTH_KEY}" ]]; then
   UP_ARGS="--authkey=${AUTH_KEY} ${UP_ARGS}"
+fi
+if [[ ! -z "${HOSTNAME}" ]]; then
+  UP_ARGS="--hostname=${HOSTNAME} ${UP_ARGS}"
 fi
 if [[ ! -z "${EXTRA_ARGS}" ]]; then
   UP_ARGS="${UP_ARGS} ${EXTRA_ARGS:-}"
