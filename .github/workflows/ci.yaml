@@ -5,6 +5,7 @@ on:
     paths:
     - 'Dockerfile'
     - 'run.sh'
+    - '.github/workflows/ci.yaml'
 
 jobs:
   docker:
